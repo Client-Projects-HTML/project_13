@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest insights on commercial kitchen safety, NFPA compliance, cleaning best practices, and industry news.">
+    <meta name="keywords" content="kitchen safety blog, NFPA compliance, commercial kitchen tips, exhaust cleaning">
+    <title>Blog - Kitchen Exhaust Pro | Commercial Kitchen Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 12a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0z"/><path d="M12 2v6"/><path d="M12 22v-6"/></svg>
+                    </div>
+                    <span>Kitchen Exhaust Pro</span>
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item nav-dropdown">
+                        <a href="services.html" class="nav-link dropdown-toggle">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html" class="dropdown-item">All Services</a></li>
+                            <li><a href="service-details.html" class="dropdown-item">Exhaust Hood Cleaning</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item d-none d-lg-block"><a href="dashboard.html" class="btn btn-primary">Dashboard</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Our Blog</h1>
+                <nav class="page-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Blog</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="section">
+            <div class="container">
+                <!-- Search & Filter -->
+                <div class="flex justify-between items-center mb-8">
+                    <div class="flex gap-4">
+                        <button class="btn btn-primary btn-sm">All Posts</button>
+                        <button class="btn btn-outline btn-sm">Compliance</button>
+                        <button class="btn btn-outline btn-sm">Safety</button>
+                        <button class="btn btn-outline btn-sm">Tips</button>
+                    </div>
+                    <div class="search-form flex gap-2">
+                        <input type="search" class="form-control" placeholder="Search articles..." aria-label="Search">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+                <!-- Featured Post -->
+                <div class="mb-12">
+                    <article class="card p-0 overflow-hidden" style="display: grid; grid-template-columns: 1fr 1fr;">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&h=500&fit=crop" alt="NFPA 96 Compliance" style="object-fit: cover; min-height: 400px;">
+                        <div class="p-8 flex flex-col justify-center">
+                            <div class="flex gap-2 mb-4">
+                                <span class="badge badge-primary">Compliance</span>
+                                <span class="badge badge-secondary">NFPA 96</span>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-4">
+                                <a href="blog-details.html">Complete Guide to NFPA 96 Compliance for Restaurant Owners</a>
+                            </h2>
+                            <p class="text-secondary mb-4">Learn about the essential requirements for commercial kitchen exhaust cleaning and how to stay compliant with NFPA 96 standards to avoid fines and ensure safety.</p>
+                            <div class="flex items-center gap-4 text-sm text-secondary">
+                                <span>Jan 15, 2024</span>
+                                <span>10 min read</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Blog Grid -->
+                <div class="grid grid-cols-3 gap-6 mb-12">
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop" alt="Kitchen Fire Prevention" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="badge badge-secondary">Safety</span>
+                                <span>Jan 8, 2024</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="blog-details.html">Preventing Kitchen Fires: The Importance of Regular Exhaust Cleaning</a>
+                            </h3>
+                            <p class="blog-excerpt">Discover how regular exhaust cleaning can significantly reduce the risk of kitchen fires and protect your business.</p>
+                            <a href="blog-details.html" class="btn btn-outline btn-sm">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=250&fit=crop" alt="Choosing Cleaning Service" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="badge badge-warning">Tips</span>
+                                <span>Dec 28, 2023</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="blog-details.html">How to Choose the Right Commercial Kitchen Cleaning Service</a>
+                            </h3>
+                            <p class="blog-excerpt">Key factors to consider when selecting a commercial kitchen exhaust cleaning service for your restaurant.</p>
+                            <a href="blog-details.html" class="btn btn-outline btn-sm">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=400&h=250&fit=crop" alt="Health Inspection Tips" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="badge badge-primary">Compliance</span>
+                                <span>Dec 15, 2023</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="blog-details.html">Health Inspection Checklist: Be Prepared for Your Next Visit</a>
+                            </h3>
+                            <p class="blog-excerpt">Ensure your kitchen passes health inspections with our comprehensive pre-inspection checklist.</p>
+                            <a href="blog-details.html" class="btn btn-outline btn-sm">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=400&h=250&fit=crop" alt="Grease Management" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="badge badge-secondary">Tips</span>
+                                <span>Dec 1, 2023</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="blog-details.html">Daily Grease Management Tips for Commercial Kitchens</a>
+                            </h3>
+                            <p class="blog-excerpt">Simple daily practices that can help reduce grease buildup between professional cleanings.</p>
+                            <a href="blog-details.html" class="btn btn-outline btn-sm">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop" alt="Energy Efficiency" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="badge badge-warning">Tips</span>
+                                <span>Nov 20, 2023</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="blog-details.html">How Clean Exhaust Systems Improve Energy Efficiency</a>
+                            </h3>
+                            <p class="blog-excerpt">A clean exhaust system runs more efficiently, saving you money on energy costs.</p>
+                            <a href="blog-details.html" class="btn btn-outline btn-sm">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=250&fit=crop" alt="Insurance Requirements" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="badge badge-primary">Compliance</span>
+                                <span>Nov 10, 2023</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="blog-details.html">Understanding Insurance Requirements for Kitchen Exhaust Cleaning</a>
+                            </h3>
+                            <p class="blog-excerpt">Many insurance policies require regular exhaust cleaning. Learn what's typically required.</p>
+                            <a href="blog-details.html" class="btn btn-outline btn-sm">Read More</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Blog pagination">
+                    <ul class="flex justify-center gap-2">
+                        <li><button class="btn btn-outline btn-sm" disabled>&laquo; Previous</button></li>
+                        <li><button class="btn btn-primary btn-sm">1</button></li>
+                        <li><button class="btn btn-outline btn-sm">2</button></li>
+                        <li><button class="btn btn-outline btn-sm">3</button></li>
+                        <li><button class="btn btn-outline btn-sm">Next &raquo;</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kitchen Exhaust Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="btn btn-primary back-to-top" id="back-to-top" aria-label="Back to top" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

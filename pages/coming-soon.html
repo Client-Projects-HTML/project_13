@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Coming Soon - Kitchen Exhaust Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <style>
+        .coming-soon { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-4); background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); }
+        .coming-soon-content { max-width: 600px; color: var(--color-white); }
+        .coming-soon h1 { font-size: clamp(3rem, 10vw, 5rem); color: var(--color-white); margin-bottom: var(--space-4); }
+        .coming-soon p { font-size: var(--font-size-lg); opacity: 0.9; margin-bottom: var(--space-8); }
+        .countdown { display: flex; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-8); }
+        .countdown-item { text-align: center; }
+        .countdown-number { font-size: var(--font-size-4xl); font-weight: 700; background: rgba(255,255,255,0.2); padding: var(--space-4); border-radius: var(--radius-xl); min-width: 100px; }
+        .countdown-label { font-size: var(--font-size-sm); margin-top: var(--space-2); opacity: 0.8; }
+        .newsletter-form { display: flex; gap: var(--space-2); max-width: 500px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" style="position: fixed; top: var(--space-4); right: var(--space-4); z-index: 1000; background: rgba(255,255,255,0.2); color: var(--color-white);">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    
+    <main class="coming-soon">
+        <div class="coming-soon-content">
+            <div class="logo mb-6">
+                <div class="logo-icon" style="background: var(--color-white); margin: 0 auto;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M8.5 12a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0z"/><path d="M12 2v6"/><path d="M12 22v-6"/></svg>
+                </div>
+            </div>
+            <h1>Something Amazing is Coming</h1>
+            <p>We're working hard to bring you something special. Subscribe to get notified when we launch.</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <form class="newsletter-form">
+                <input type="email" class="form-control" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-white">Notify Me</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Countdown Timer
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 30); // 30 days from now
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate.getTime() - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
