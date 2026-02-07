@@ -1,0 +1,129 @@
+<!-- Scheduling Calendar -->
+<div class="card mb-6">
+    <div class="schedule-header flex justify-between items-center mb-6">
+        <h2 class="text-xl font-bold">Upcoming Cleanings</h2>
+        <div class="schedule-header-actions">
+            <button class="btn btn-primary">Schedule New Service</button>
+        </div>
+    </div>
+
+    <div class="schedule-list">
+        <div class="schedule-item">
+            <div class="schedule-date">
+                <div class="schedule-day">15</div>
+                <div class="schedule-month">DEC</div>
+            </div>
+            <div class="schedule-details">
+                <h3 class="font-bold">Kitchen Exhaust Hood Cleaning</h3>
+                <p class="text-secondary text-sm">Main Kitchen - Full Service</p>
+                <div class="flex gap-2 mt-2">
+                    <span class="badge badge-primary">Scheduled</span>
+                    <span class="text-sm text-secondary">10:00 AM - 2:00 PM</span>
+                </div>
+            </div>
+            <div class="schedule-actions">
+                <button class="btn btn-outline btn-sm">Reschedule</button>
+                <button class="btn btn-outline btn-sm">Cancel</button>
+            </div>
+        </div>
+
+        <div class="schedule-item">
+            <div class="schedule-date">
+                <div class="schedule-day">22</div>
+                <div class="schedule-month">DEC</div>
+            </div>
+            <div class="schedule-details">
+                <h3 class="font-bold">Ductwork Inspection</h3>
+                <p class="text-secondary text-sm">Quarterly Compliance Check</p>
+                <div class="flex gap-2 mt-2">
+                    <span class="badge badge-warning">Pending Confirmation</span>
+                    <span class="text-sm text-secondary">2:00 PM - 4:00 PM</span>
+                </div>
+            </div>
+            <div class="schedule-actions">
+                <button class="btn btn-primary btn-sm">Confirm</button>
+                <button class="btn btn-outline btn-sm">Reschedule</button>
+            </div>
+        </div>
+
+        <div class="schedule-item">
+            <div class="schedule-date">
+                <div class="schedule-day">05</div>
+                <div class="schedule-month">JAN</div>
+            </div>
+            <div class="schedule-details">
+                <h3 class="font-bold">Filter Replacement</h3>
+                <p class="text-secondary text-sm">Routine Maintenance</p>
+                <div class="flex gap-2 mt-2">
+                    <span class="badge badge-primary">Scheduled</span>
+                    <span class="text-sm text-secondary">9:00 AM - 11:00 AM</span>
+                </div>
+            </div>
+            <div class="schedule-actions">
+                <button class="btn btn-outline btn-sm">Reschedule</button>
+                <button class="btn btn-outline btn-sm">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cleaning Frequency -->
+<div class="grid grid-cols-2 gap-6">
+    <div class="card">
+        <h3 class="font-bold mb-4">Your Cleaning Schedule</h3>
+        <div class="space-y-4">
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Hood Cleaning</span>
+                <span class="font-bold">Monthly</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Ductwork Inspection</span>
+                <span class="font-bold">Quarterly</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Filter Replacement</span>
+                <span class="font-bold">Bi-Monthly</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Full System Clean</span>
+                <span class="font-bold">Annually</span>
+            </div>
+        </div>
+        <button class="btn btn-outline w-full mt-4">Modify Schedule</button>
+    </div>
+
+    <div class="card">
+        <h3 class="font-bold mb-4">Compliance Status</h3>
+        <div class="space-y-4">
+            <div>
+                <div class="flex justify-between mb-2">
+                    <span class="text-sm">NFPA 96 Compliance</span>
+                    <span class="text-sm font-bold text-success">100%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%"></div>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-between mb-2">
+                    <span class="text-sm">Next Inspection Due</span>
+                    <span class="text-sm font-bold">45 days</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill bg-warning" style="width: 65%"></div>
+                </div>
+            </div>
+            <div class="mt-4 p-4 bg-success-light rounded-lg">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span class="font-bold">Fully Compliant</span>
+                </div>
+                <p class="text-sm mt-2">All required services are up to date</p>
+            </div>
+        </div>
+    </div>
+</div>

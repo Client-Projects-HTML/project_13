@@ -1,0 +1,137 @@
+<!-- Service Reports -->
+<div class="card mb-6">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-bold">Service History</h2>
+        <div class="flex gap-2">
+            <button class="btn btn-outline btn-sm" data-action="filter-reports">Filter</button>
+            <button class="btn btn-outline btn-sm">Export PDF</button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Service Type</th>
+                    <th>Technician</th>
+                    <th>Status</th>
+                    <th>Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dec 1, 2024</td>
+                    <td>Hood Cleaning</td>
+                    <td>John Smith</td>
+                    <td><span class="badge badge-success">Completed</span></td>
+                    <td><a href="#" class="text-primary">View Report</a></td>
+                </tr>
+                <tr>
+                    <td>Nov 15, 2024</td>
+                    <td>Filter Replacement</td>
+                    <td>Mike Johnson</td>
+                    <td><span class="badge badge-success">Completed</span></td>
+                    <td><a href="#" class="text-primary">View Report</a></td>
+                </tr>
+                <tr>
+                    <td>Nov 1, 2024</td>
+                    <td>Hood Cleaning</td>
+                    <td>John Smith</td>
+                    <td><span class="badge badge-success">Completed</span></td>
+                    <td><a href="#" class="text-primary">View Report</a></td>
+                </tr>
+                <tr>
+                    <td>Oct 15, 2024</td>
+                    <td>Ductwork Inspection</td>
+                    <td>Sarah Williams</td>
+                    <td><span class="badge badge-success">Completed</span></td>
+                    <td><a href="#" class="text-primary">View Report</a></td>
+                </tr>
+                <tr>
+                    <td>Oct 1, 2024</td>
+                    <td>Hood Cleaning</td>
+                    <td>John Smith</td>
+                    <td><span class="badge badge-success">Completed</span></td>
+                    <td><a href="#" class="text-primary">View Report</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Compliance Documents -->
+<div class="grid grid-cols-2 gap-6">
+    <div class="card">
+        <h3 class="font-bold mb-4">Compliance Certificates</h3>
+        <div class="document-list">
+            <div class="document-item">
+                <div class="document-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <div class="document-info">
+                    <div class="document-name">NFPA 96 Certificate 2024</div>
+                    <div class="document-date">Valid until Dec 31, 2024</div>
+                </div>
+                <button class="btn btn-outline btn-sm">Download</button>
+            </div>
+
+            <div class="document-item">
+                <div class="document-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <div class="document-info">
+                    <div class="document-name">Insurance Certificate</div>
+                    <div class="document-date">Valid until Jun 30, 2025</div>
+                </div>
+                <button class="btn btn-outline btn-sm">Download</button>
+            </div>
+
+            <div class="document-item">
+                <div class="document-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <div class="document-info">
+                    <div class="document-name">Inspection Report Q4</div>
+                    <div class="document-date">Generated Nov 15, 2024</div>
+                </div>
+                <button class="btn btn-outline btn-sm">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 class="font-bold mb-4">Service Summary</h3>
+        <div class="space-y-4">
+            <div class="summary-stat">
+                <div class="summary-label">Total Services (2024)</div>
+                <div class="summary-value">12</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-label">Compliance Rate</div>
+                <div class="summary-value text-success">100%</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-label">Average Response Time</div>
+                <div class="summary-value">24 hours</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-label">Next Service Due</div>
+                <div class="summary-value">Dec 15, 2024</div>
+            </div>
+        </div>
+        <button class="btn btn-primary w-full mt-4">Generate Annual Report</button>
+    </div>
+</div>

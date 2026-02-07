@@ -1,82 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional commercial kitchen exhaust cleaning services - exhaust hood cleaning, ductwork cleaning, filter replacement, NFPA compliance scheduling.">
-    <meta name="keywords" content="commercial kitchen cleaning services, exhaust hood cleaning, ductwork cleaning, NFPA compliance">
+    <meta name="description"
+        content="Professional commercial kitchen exhaust cleaning services - exhaust hood cleaning, ductwork cleaning, filter replacement, NFPA compliance scheduling.">
+    <meta name="keywords"
+        content="commercial kitchen cleaning services, exhaust hood cleaning, ductwork cleaning, NFPA compliance">
     <title>Our Services - Kitchen Exhaust Pro | Commercial Kitchen Cleaning</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
     <link rel="stylesheet" href="../assets/css/rtl.css">
 </head>
+
 <body>
     <header class="header" id="header">
         <div class="container">
             <nav class="navbar">
                 <a href="index.html" class="logo">
                     <div class="logo-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 12a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0z"/><path d="M12 2v6"/><path d="M12 22v-6"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M8.5 12a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0z" />
+                            <path d="M12 2v6" />
+                            <path d="M12 22v-6" />
+                        </svg>
                     </div>
                     <span>Kitchen Exhaust Pro</span>
                 </a>
                 <ul class="nav-menu" id="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item nav-dropdown">
-                        <a href="services.html" class="nav-link active dropdown-toggle">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="services.html" class="dropdown-item">All Services</a></li>
-                            <li><a href="service-details.html" class="dropdown-item">Exhaust Hood Cleaning</a></li>
-                            <li><a href="service-details.html" class="dropdown-item">Ductwork Cleaning</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a href="services.html" class="nav-link active">Services</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li class="nav-item d-none d-lg-block"><a href="dashboard.html" class="btn btn-primary">Dashboard</a></li>
+                    <li class="nav-item d-none d-lg-block"><a href="login.html" class="btn btn-primary">Login</a></li>
                 </ul>
                 <div class="nav-actions">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <!-- RTL Toggle -->
+                    <button class="rtl-toggle" id="rtl-toggle" aria-label="Toggle RTL mode" title="Toggle RTL/LTR">
+                        <span class="rtl-label-ltr">RTL</span>
+                        <span class="rtl-label-rtl" style="display: none;">LTR</span>
                     </button>
-                    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5" />
+                            <path
+                                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </button>
+                    <button class="menu-toggle" id="menu-toggle"
+                        aria-label="Toggle menu"><span></span><span></span><span></span></button>
                 </div>
             </nav>
         </div>
     </header>
 
     <main id="main-content">
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title">Our Services</h1>
-                <nav class="page-breadcrumb">
-                    <a href="index.html">Home</a>
-                    <span>/</span>
-                    <span>Services</span>
-                </nav>
-            </div>
-        </section>
+
 
         <!-- Services Grid -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Complete Kitchen Exhaust Solutions</h2>
-                    <p class="section-subtitle">Professional services to keep your commercial kitchen safe, clean, and NFPA compliant.</p>
+                    <p class="section-subtitle">Professional services to keep your commercial kitchen safe, clean, and
+                        NFPA compliant.</p>
                     <div class="section-divider"></div>
                 </div>
-                
+
                 <div class="grid grid-cols-3 gap-6">
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 12a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0z"/><path d="M12 2v6"/><path d="M12 22v-6"/><path d="M4.93 4.93l4.24 4.24"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8.5 12a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0z" />
+                                <path d="M12 2v6" />
+                                <path d="M12 22v-6" />
+                                <path d="M4.93 4.93l4.24 4.24" />
+                            </svg>
                         </div>
                         <h3 class="service-title">Exhaust Hood Cleaning</h3>
-                        <p class="service-description">Complete degreasing and cleaning of exhaust hoods, filters, and grease removal systems following NFPA 96 standards.</p>
+                        <p class="service-description">Complete degreasing and cleaning of exhaust hoods, filters, and
+                            grease removal systems following NFPA 96 standards.</p>
                         <ul class="pricing-features mb-4">
                             <li>Interior & exterior cleaning</li>
                             <li>Filter degreasing</li>
@@ -85,80 +101,107 @@
                         </ul>
                         <a href="service-details.html" class="btn btn-outline w-full">Learn More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" />
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                            </svg>
                         </div>
                         <h3 class="service-title">Ductwork Cleaning</h3>
-                        <p class="service-description">Professional cleaning of exhaust ductwork from hood to roof termination. Remove dangerous grease buildup completely.</p>
+                        <p class="service-description">Professional cleaning of exhaust ductwork from hood to roof
+                            termination. Remove dangerous grease buildup completely.</p>
                         <ul class="pricing-features mb-4">
                             <li>Full duct inspection</li>
                             <li>Mechanical cleaning</li>
                             <li>Roof termination cleaning</li>
                             <li>Compliance certification</li>
                         </ul>
-                        <a href="service-details.html" class="btn btn-outline w-full">Learn More</a>
+                        <a href="service-ductwork-cleaning.html" class="btn btn-outline w-full">Learn More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33" />
+                            </svg>
                         </div>
                         <h3 class="service-title">Filter Replacement</h3>
-                        <p class="service-description">Regular filter inspection and replacement services. Keep your kitchen air clean and compliant with health regulations.</p>
+                        <p class="service-description">Regular filter inspection and replacement services. Keep your
+                            kitchen air clean and compliant with health regulations.</p>
                         <ul class="pricing-features mb-4">
                             <li>Baffle filter service</li>
                             <li>Mesh filter cleaning</li>
                             <li>Filter upgrades available</li>
                             <li>Inventory management</li>
                         </ul>
-                        <a href="service-details.html" class="btn btn-outline w-full">Learn More</a>
+                        <a href="service-filter-replacement.html" class="btn btn-outline w-full">Learn More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                            </svg>
                         </div>
                         <h3 class="service-title">Fan & Motor Maintenance</h3>
-                        <p class="service-description">Inspection, cleaning, and maintenance of exhaust fans and motors for optimal performance and safety.</p>
+                        <p class="service-description">Inspection, cleaning, and maintenance of exhaust fans and motors
+                            for optimal performance and safety.</p>
                         <ul class="pricing-features mb-4">
                             <li>Fan blade cleaning</li>
                             <li>Motor inspection</li>
                             <li>Bearing lubrication</li>
                             <li>Performance testing</li>
                         </ul>
-                        <a href="service-details.html" class="btn btn-outline w-full">Learn More</a>
+                        <a href="service-fan-maintenance.html" class="btn btn-outline w-full">Learn More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
                         </div>
                         <h3 class="service-title">Fire Suppression Cleaning</h3>
-                        <p class="service-description">Professional cleaning of fire suppression systems and hoods. Ensure your fire safety systems work when needed.</p>
+                        <p class="service-description">Professional cleaning of fire suppression systems and hoods.
+                            Ensure your fire safety systems work when needed.</p>
                         <ul class="pricing-features mb-4">
                             <li>Nozzle inspection</li>
                             <li>Line clearing</li>
                             <li>System testing</li>
                             <li>Certification provided</li>
                         </ul>
-                        <a href="service-details.html" class="btn btn-outline w-full">Learn More</a>
+                        <a href="service-fire-suppression.html" class="btn btn-outline w-full">Learn More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
                         </div>
                         <h3 class="service-title">Compliance Scheduling</h3>
-                        <p class="service-description">Automated NFPA compliance scheduling with reminders. Never miss a cleaning or inspection deadline again.</p>
+                        <p class="service-description">Automated NFPA compliance scheduling with reminders. Never miss a
+                            cleaning or inspection deadline again.</p>
                         <ul class="pricing-features mb-4">
                             <li>Auto reminders</li>
                             <li>Digital scheduling</li>
                             <li>Compliance tracking</li>
                             <li>Report generation</li>
                         </ul>
-                        <a href="service-details.html" class="btn btn-outline w-full">Learn More</a>
+                        <a href="service-compliance-scheduling.html" class="btn btn-outline w-full">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -173,24 +216,36 @@
                 </div>
                 <div class="grid grid-cols-4 gap-6">
                     <div class="text-center">
-                        <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                            1</div>
                         <h4 class="font-semibold mb-2">Inspection</h4>
-                        <p class="text-sm text-secondary">Initial assessment of exhaust system condition and grease buildup levels.</p>
+                        <p class="text-sm text-secondary">Initial assessment of exhaust system condition and grease
+                            buildup levels.</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                            2</div>
                         <h4 class="font-semibold mb-2">Preparation</h4>
-                        <p class="text-sm text-secondary">Protect kitchen equipment and set up proper containment for debris.</p>
+                        <p class="text-sm text-secondary">Protect kitchen equipment and set up proper containment for
+                            debris.</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                            3</div>
                         <h4 class="font-semibold mb-2">Cleaning</h4>
-                        <p class="text-sm text-secondary">Thorough degreasing and cleaning using professional-grade equipment.</p>
+                        <p class="text-sm text-secondary">Thorough degreasing and cleaning using professional-grade
+                            equipment.</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                            4</div>
                         <h4 class="font-semibold mb-2">Documentation</h4>
-                        <p class="text-sm text-secondary">Photo documentation and compliance report for your records.</p>
+                        <p class="text-sm text-secondary">Photo documentation and compliance report for your records.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -200,7 +255,8 @@
         <section class="cta-section">
             <div class="container">
                 <h2 class="cta-title">Need a Custom Service Package?</h2>
-                <p class="cta-description">Contact us for a free consultation and customized cleaning plan for your facility.</p>
+                <p class="cta-description">Contact us for a free consultation and customized cleaning plan for your
+                    facility.</p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn btn-white btn-lg">Get Free Quote</a>
                     <a href="tel:+1234567890" class="btn btn-outline-white btn-lg">Call Now</a>
@@ -212,45 +268,128 @@
     <footer class="footer">
         <div class="container">
             <div class="grid grid-cols-4 gap-8 mb-8">
+                <!-- About Widget -->
                 <div class="footer-widget">
-                    <h4>Kitchen Exhaust Pro</h4>
-                    <p>Professional commercial kitchen exhaust cleaning services with NFPA 96 compliance.</p>
+                    <h4>About Kitchen Exhaust Pro</h4>
+                    <p>Professional commercial kitchen exhaust cleaning services with NFPA 96 compliance. Serving
+                        restaurants, hotels, and food service facilities nationwide.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Quick Links -->
                 <div class="footer-widget">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="blog.html">Blog</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="404.html">Careers</a></li>
                     </ul>
                 </div>
+
+                <!-- Services -->
                 <div class="footer-widget">
                     <h4>Services</h4>
                     <ul class="footer-links">
                         <li><a href="service-details.html">Exhaust Hood Cleaning</a></li>
                         <li><a href="service-details.html">Ductwork Cleaning</a></li>
                         <li><a href="service-details.html">Filter Replacement</a></li>
+                        <li><a href="service-details.html">Fan & Motor Maintenance</a></li>
+                        <li><a href="service-details.html">Fire Suppression Cleaning</a></li>
+                        <li><a href="service-details.html">Compliance Scheduling</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact Info -->
                 <div class="footer-widget">
-                    <h4>Contact</h4>
+                    <h4>Contact Us</h4>
                     <ul class="footer-links">
-                        <li>(123) 456-7890</li>
-                        <li>info@kitchenexhaustpro.com</li>
+                        <li class="flex items-start gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>123 Cleaning Street, Suite 100<br>New York, NY 10001</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <a href="tel:+1234567890">(123) 456-7890</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:info@kitchenexhaustpro.com">info@kitchenexhaustpro.com</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Kitchen Exhaust Pro. All rights reserved.</p>
+
+            <div class="footer-bottom"
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="margin: 0;">&copy; 2024 Kitchen Exhaust Pro. All rights reserved. | <a href="#">Privacy
+                        Policy</a> | <a href="#">Terms of Service</a></p>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--color-gray-500);">Powered by <a
+                        href="https://www.abhivorn.com/" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-white); text-decoration: none; font-weight: 600;">Abhivorn
+                        Technologies Pvt. Ltd</a></p>
             </div>
         </div>
     </footer>
 
-    <button class="btn btn-primary back-to-top" id="back-to-top" aria-label="Back to top" style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    <button class="btn btn-primary back-to-top" id="back-to-top" aria-label="Back to top"
+        style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
     </button>
 
     <script src="../assets/js/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,151 @@
+<!-- Client Management -->
+<div class="card mb-6">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-bold">Client Accounts</h2>
+        <button class="btn btn-primary">Add New Client</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Restaurant Name</th>
+                    <th>Contact</th>
+                    <th>Phone</th>
+                    <th>Next Service</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="font-bold">The Golden Spoon</div>
+                        <div class="text-sm text-secondary">123 Main St, New York</div>
+                    </td>
+                    <td>John Doe</td>
+                    <td>(555) 123-4567</td>
+                    <td>Dec 15, 2024</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>
+                        <button class="btn btn-outline btn-sm action-btn">View</button>
+                        <button class="btn btn-outline btn-sm action-btn">Edit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="font-bold">Pasta Paradise</div>
+                        <div class="text-sm text-secondary">456 Oak Ave, Brooklyn</div>
+                    </td>
+                    <td>Jane Smith</td>
+                    <td>(555) 234-5678</td>
+                    <td>Dec 18, 2024</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>
+                        <button class="btn btn-outline btn-sm action-btn">View</button>
+                        <button class="btn btn-outline btn-sm action-btn">Edit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="font-bold">Burger Haven</div>
+                        <div class="text-sm text-secondary">789 Elm St, Queens</div>
+                    </td>
+                    <td>Mike Johnson</td>
+                    <td>(555) 345-6789</td>
+                    <td>Dec 20, 2024</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                    <td>
+                        <button class="btn btn-outline btn-sm action-btn">View</button>
+                        <button class="btn btn-outline btn-sm action-btn">Edit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="font-bold">Sushi Express</div>
+                        <div class="text-sm text-secondary">321 Pine Rd, Manhattan</div>
+                    </td>
+                    <td>Sarah Williams</td>
+                    <td>(555) 456-7890</td>
+                    <td>Dec 22, 2024</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>
+                        <button class="btn btn-outline btn-sm action-btn">View</button>
+                        <button class="btn btn-outline btn-sm action-btn">Edit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="font-bold">Taco Fiesta</div>
+                        <div class="text-sm text-secondary">654 Maple Dr, Bronx</div>
+                    </td>
+                    <td>Carlos Rodriguez</td>
+                    <td>(555) 567-8901</td>
+                    <td>Jan 5, 2025</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>
+                        <button class="btn btn-outline btn-sm action-btn">View</button>
+                        <button class="btn btn-outline btn-sm action-btn">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Client Statistics -->
+<div class="grid grid-cols-3 gap-6">
+    <div class="card">
+        <h3 class="font-bold mb-4">Client Overview</h3>
+        <div class="space-y-4">
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Total Clients</span>
+                <span class="text-2xl font-bold">45</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Active Clients</span>
+                <span class="text-2xl font-bold text-success">42</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Pending Clients</span>
+                <span class="text-2xl font-bold text-warning">3</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">New This Month</span>
+                <span class="text-2xl font-bold text-primary">5</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 class="font-bold mb-4">Service Agreements</h3>
+        <div class="space-y-4">
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Monthly Plans</span>
+                <span class="text-xl font-bold">28</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Quarterly Plans</span>
+                <span class="text-xl font-bold">12</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Annual Plans</span>
+                <span class="text-xl font-bold">5</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-secondary">Expiring Soon</span>
+                <span class="text-xl font-bold text-warning">3</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 class="font-bold mb-4">Quick Actions</h3>
+        <div class="space-y-3">
+            <button class="btn btn-primary w-full">Add New Client</button>
+            <button class="btn btn-outline w-full">Import Clients</button>
+            <button class="btn btn-outline w-full">Export Client List</button>
+            <button class="btn btn-outline w-full">Send Bulk Email</button>
+        </div>
+    </div>
+</div>

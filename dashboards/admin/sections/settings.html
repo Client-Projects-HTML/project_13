@@ -1,0 +1,110 @@
+<!-- Account Settings -->
+<div class="grid grid-cols-2 gap-6">
+    <!-- Profile Information -->
+    <div class="card">
+        <h3 class="font-bold mb-4">Profile Information</h3>
+        <form class="space-y-4">
+            <div class="form-group">
+                <label class="form-label">Restaurant Name</label>
+                <input type="text" class="form-control" value="The Golden Spoon" placeholder="Restaurant name">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Contact Person</label>
+                <input type="text" class="form-control" value="John Doe" placeholder="Your name">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" value="john@goldenspoon.com" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" value="(555) 123-4567" placeholder="Phone">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Address</label>
+                <textarea class="form-control" rows="3" placeholder="Full address">123 Main Street, Suite 100
+New York, NY 10001</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full">Update Profile</button>
+        </form>
+    </div>
+
+    <!-- Notification Preferences -->
+    <div class="card">
+        <h3 class="font-bold mb-4">Notification Preferences</h3>
+        <div class="space-y-4">
+            <div class="setting-item">
+                <div>
+                    <div class="font-bold">Email Notifications</div>
+                    <p class="text-sm text-secondary">Receive updates via email</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <div class="font-bold">SMS Reminders</div>
+                    <p class="text-sm text-secondary">Get text message reminders</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <div class="font-bold">Service Reminders</div>
+                    <p class="text-sm text-secondary">Upcoming cleaning notifications</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <div class="font-bold">Compliance Alerts</div>
+                    <p class="text-sm text-secondary">NFPA deadline notifications</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <div class="font-bold">Marketing Emails</div>
+                    <p class="text-sm text-secondary">Promotions and updates</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <hr class="my-6">
+
+        <h3 class="font-bold mb-4">Security</h3>
+        <div class="space-y-3">
+            <button class="btn btn-outline w-full">Change Password</button>
+            <button class="btn btn-outline w-full">Enable Two-Factor Auth</button>
+        </div>
+
+        <hr class="my-6">
+
+        <h3 class="font-bold mb-4">Danger Zone</h3>
+        <button class="btn btn-danger w-full">Delete Account</button>
+    </div>
+</div>

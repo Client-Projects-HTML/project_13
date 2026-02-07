@@ -1,55 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | Kitchen Exhaust Pro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
     <link rel="stylesheet" href="../assets/css/rtl.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+            padding: 80px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .error-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .error-code {
+            font-size: clamp(8rem, 20vw, 15rem);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 10px 20px rgba(37, 99, 235, 0.2));
+            position: relative;
+        }
+
+        .error-code::after {
+            content: "404";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1.1);
+            z-index: -1;
+            opacity: 0.1;
+            filter: blur(10px);
+        }
+
+        .error-title {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .error-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .floating-shape {
+            position: absolute;
+            background: linear-gradient(135deg, #2563EB 0%, #059669 100%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            filter: blur(40px);
+            opacity: 0.1;
+            z-index: 1;
+            pointer-events: none;
+            animation: morph 10s linear infinite alternate;
+        }
+
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+            animation-duration: 15s;
+        }
+
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -50px;
+            left: -50px;
+            animation-duration: 20s;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+                transform: rotate(0deg) scale(1);
+            }
+
+            100% {
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+                transform: rotate(360deg) scale(1.2);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hover-lift {
+            transition: transform 0.2s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-4px);
+        }
+
+        [data-theme="dark"] .error-page {
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+        }
+    </style>
 </head>
+
 <body>
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 12a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0z"/><path d="M12 2v6"/><path d="M12 22v-6"/></svg>
-                    </div>
-                    <span>Kitchen Exhaust Pro</span>
-                </a>
-                <div class="nav-actions">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                    </button>
-                </div>
-            </nav>
-        </div>
-    </header>
+
 
     <main id="main-content">
         <section class="error-page">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+
             <div class="container">
-                <div class="error-code">404</div>
-                <h1 class="error-title">Oops! Page Not Found</h1>
-                <p class="error-description">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
-                <div class="flex gap-4 justify-center">
-                    <a href="index.html" class="btn btn-primary btn-lg">Go to Homepage</a>
-                    <a href="contact.html" class="btn btn-outline btn-lg">Contact Us</a>
+                <div class="error-content">
+                    <div class="error-code">404</div>
+                    <h1 class="error-title">Oops! Page Missing</h1>
+                    <p class="error-description">The page you're looking for doesn't exist or has been moved to a
+                        different kitchen. Let's get you back to the main menu.</p>
+                    <div class="error-actions">
+                        <a href="index.html" class="btn btn-primary btn-lg hover-lift">Back to Homepage</a>
+                        <a href="contact.html" class="btn btn-outline btn-lg hover-lift">Contact Support</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2024 Kitchen Exhaust Pro. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+
+
+    <script src="../assets/js/main.js"></script>
 </body>
+
 </html>

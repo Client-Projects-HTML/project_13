@@ -7,99 +7,100 @@
 
 /* Additional Dark Mode Overrides */
 [data-theme="dark"] {
+
     /* Body and background */
     body {
         background-color: var(--bg-secondary);
         color: var(--text-primary);
     }
-    
+
     /* Header */
     .header {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     /* Hero section */
     .hero {
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
     }
-    
+
     .hero-title {
         color: var(--text-primary);
     }
-    
+
     .hero-title span {
         background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
-    
+
     .hero-description {
         color: var(--text-secondary);
     }
-    
+
     /* Page header */
     .page-header {
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     }
-    
+
     .page-title {
         color: var(--text-primary);
     }
-    
+
     /* Page breadcrumb */
     .page-breadcrumb {
         color: var(--text-secondary);
     }
-    
+
     .page-breadcrumb a {
         color: var(--text-secondary);
     }
-    
+
     .page-breadcrumb a:hover {
         color: var(--color-primary-light);
     }
-    
+
     /* Section backgrounds */
     .section {
         background-color: var(--bg-secondary);
     }
-    
+
     .section.bg-secondary,
     .section.bg-tertiary {
         background-color: var(--bg-tertiary) !important;
     }
-    
+
     .section-title {
         color: var(--text-primary);
     }
-    
+
     .section-subtitle {
         color: var(--color-primary);
     }
-    
+
     .section-description {
         color: var(--text-secondary);
     }
-    
+
     /* Stats section */
     .stats-section {
         background-color: var(--bg-tertiary);
     }
-    
+
     .stat-item {
         background-color: var(--bg-primary);
     }
-    
+
     .stat-number {
         color: var(--text-primary);
     }
-    
+
     .stat-label {
         color: var(--text-secondary);
     }
-    
+
     /* Form elements in dark mode */
     .form-control {
         background-color: var(--bg-tertiary);
@@ -115,434 +116,469 @@
     .form-control::placeholder {
         color: var(--text-tertiary);
     }
-    
+
     .form-label {
         color: var(--text-primary);
     }
-    
+
     .form-text {
         color: var(--text-tertiary);
     }
-    
+
     /* Card overrides */
     .card {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .card-header {
         background-color: var(--bg-tertiary);
         border-color: var(--border-color);
     }
-    
+
     .card-body {
         background-color: var(--bg-primary);
     }
-    
+
     .card-footer {
         background-color: var(--bg-tertiary);
         border-color: var(--border-color);
     }
-    
+
     .card-title {
         color: var(--text-primary);
     }
-    
+
     .card-text {
         color: var(--text-secondary);
     }
-    
+
     /* Service cards */
     .service-card {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .service-icon {
         background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.2), rgba(var(--color-secondary-rgb), 0.2));
     }
-    
+
     .service-title {
         color: var(--text-primary);
     }
-    
+
     .service-description {
         color: var(--text-secondary);
     }
-    
+
     /* Testimonials */
     .testimonial-card {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .testimonial-text {
         color: var(--text-secondary);
     }
-    
+
     .testimonial-author-name {
         color: var(--text-primary);
     }
-    
+
     .testimonial-author-role {
         color: var(--text-tertiary);
     }
-    
+
     /* Blog cards */
     .blog-card {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .blog-title {
         color: var(--text-primary);
     }
-    
+
     .blog-excerpt {
         color: var(--text-secondary);
     }
-    
+
     .blog-meta {
         color: var(--text-tertiary);
     }
-    
+
     /* Pricing cards */
     .pricing-card {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .pricing-card.featured {
         border-color: var(--color-primary);
     }
-    
+
     .pricing-title {
         color: var(--text-primary);
     }
-    
+
     .pricing-price {
         color: var(--text-primary);
     }
-    
+
     .pricing-features {
         color: var(--text-secondary);
     }
-    
+
     /* Sidebar */
     .sidebar {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .sidebar-title {
         color: var(--text-primary);
     }
-    
+
     .sidebar-text {
         color: var(--text-secondary);
     }
-    
+
     /* Dashboard */
     .dashboard-header {
         background-color: var(--bg-primary);
     }
-    
+
     .dashboard-title {
         color: var(--text-primary);
     }
-    
+
     .stat-card {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .stat-card-title {
         color: var(--text-secondary);
     }
-    
+
     .stat-card-value {
         color: var(--text-primary);
     }
-    
+
     /* Tables */
     .table-container {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .table {
         color: var(--text-primary);
     }
-    
+
     .table th {
         background-color: var(--bg-tertiary);
         border-color: var(--border-color);
     }
-    
+
     .table td {
         border-color: var(--border-color);
     }
-    
+
     .table tbody tr:hover td {
         background-color: var(--bg-tertiary);
     }
-    
+
     /* Timeline */
     .timeline {
         background-color: var(--bg-primary);
     }
-    
+
     .timeline-item {
         background-color: var(--bg-primary);
     }
-    
+
     .timeline-content {
         background-color: var(--bg-primary);
     }
-    
+
     .timeline-title {
         color: var(--text-primary);
     }
-    
+
     /* Error page */
     .error-page {
         background-color: var(--bg-secondary);
     }
-    
+
     .error-code {
         color: var(--color-primary);
     }
-    
+
     .error-title {
         color: var(--text-primary);
     }
-    
+
     .error-description {
         color: var(--text-secondary);
     }
-    
+
     /* Auth pages */
     .auth-container {
         background-color: var(--bg-secondary);
     }
-    
+
     .auth-card {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     /* Contact page */
     .contact-info-card {
         background-color: var(--bg-primary);
         border-color: var(--border-color);
     }
-    
+
     .contact-info-title {
         color: var(--text-primary);
     }
-    
+
     .contact-info-text {
         color: var(--text-secondary);
     }
-    
+
     /* Map container */
     .map-container {
         background-color: var(--bg-tertiary);
     }
-    
+
     /* Badges */
     .badge {
         color: var(--text-inverse);
     }
-    
+
     .badge-primary {
         background-color: var(--color-primary);
     }
-    
+
     .badge-secondary {
         background-color: var(--color-secondary);
     }
-    
+
     .badge-outline {
         background-color: transparent;
         border-color: var(--border-color);
         color: var(--text-primary);
     }
-    
+
     /* Footer */
     .footer {
         background-color: var(--color-gray-900);
         color: var(--text-secondary);
     }
-    
+
     .footer-title {
         color: var(--text-primary);
     }
-    
+
     .footer-text {
         color: var(--text-secondary);
     }
-    
+
     .footer-links a {
         color: var(--text-secondary);
     }
-    
+
     .footer-links a:hover {
         color: var(--color-primary-light);
     }
-    
+
     .footer-bottom {
         border-color: var(--border-color);
     }
-    
+
     /* Links */
     a {
         color: var(--color-primary);
     }
-    
+
     a:hover {
         color: var(--color-primary-light);
     }
-    
+
     /* Text utilities */
     .text-primary {
         color: var(--text-primary) !important;
     }
-    
+
     .text-secondary {
         color: var(--text-secondary) !important;
     }
-    
+
     .text-tertiary {
         color: var(--text-tertiary) !important;
     }
-    
+
     .text-inverse {
         color: var(--text-inverse) !important;
     }
-    
+
     /* Background utilities */
     .bg-primary {
         background-color: var(--bg-primary) !important;
     }
-    
+
     .bg-secondary {
         background-color: var(--bg-secondary) !important;
     }
-    
+
     .bg-tertiary {
         background-color: var(--bg-tertiary) !important;
     }
-    
+
     /* Border utilities */
     .border {
         border-color: var(--border-color) !important;
     }
-    
+
     /* Button styles in dark mode - High specificity */
-    [data-theme="dark"] .btn {
+    .btn,
+    a.btn {
         color: var(--text-primary) !important;
     }
-    
-    [data-theme="dark"] .btn-outline,
-    [data-theme="dark"] a.btn-outline {
+
+    .btn-outline,
+    a.btn-outline {
         background-color: transparent !important;
         color: var(--color-primary-light) !important;
         border: 2px solid var(--color-primary-light) !important;
     }
-    
-    [data-theme="dark"] .btn-outline:hover,
-    [data-theme="dark"] a.btn-outline:hover {
+
+    .btn-outline:hover,
+    a.btn-outline:hover {
         background-color: var(--color-primary) !important;
         color: var(--color-white) !important;
         border-color: var(--color-primary) !important;
     }
-    
-    [data-theme="dark"] .btn-outline-white,
-    [data-theme="dark"] a.btn-outline-white {
+
+    .btn-outline-white,
+    a.btn-outline-white {
         background-color: transparent !important;
         color: var(--color-white) !important;
         border: 2px solid var(--color-white) !important;
     }
-    
-    [data-theme="dark"] .btn-outline-white:hover,
-    [data-theme="dark"] a.btn-outline-white:hover {
+
+    .btn-outline-white:hover,
+    a.btn-outline-white:hover {
         background-color: var(--color-white) !important;
         color: var(--color-gray-900) !important;
     }
-    
-    [data-theme="dark"] .btn-white,
-    [data-theme="dark"] a.btn-white {
+
+    .btn-white,
+    a.btn-white {
         background-color: var(--color-white) !important;
         color: var(--color-gray-900) !important;
     }
-    
-    [data-theme="dark"] .btn-white:hover,
-    [data-theme="dark"] a.btn-white:hover {
+
+    .btn-white:hover,
+    a.btn-white:hover {
         background-color: var(--color-gray-200) !important;
     }
-    
+
     /* Ensure all filled buttons have white text */
-    [data-theme="dark"] .btn-primary,
-    [data-theme="dark"] a.btn-primary {
+    .btn-primary,
+    a.btn-primary {
         color: var(--color-white) !important;
     }
-    
-    [data-theme="dark"] .btn-secondary,
-    [data-theme="dark"] a.btn-secondary {
+
+    .btn-hero-primary,
+    a.btn-hero-primary {
+        background-color: var(--color-primary) !important;
         color: var(--color-white) !important;
     }
-    
-    [data-theme="dark"] .btn-accent,
-    [data-theme="dark"] a.btn-accent {
+
+    .btn-hero-outline,
+    a.btn-hero-outline {
+        background-color: transparent !important;
+        color: var(--color-white) !important;
+        border-color: var(--color-white) !important;
+    }
+
+    .btn-secondary,
+    a.btn-secondary {
         color: var(--color-white) !important;
     }
-    
+
+    .btn-accent,
+    a.btn-accent {
+        color: var(--color-white) !important;
+    }
+
+    .btn-danger,
+    a.btn-danger {
+        color: var(--color-white) !important;
+        background-color: var(--color-error) !important;
+    }
+
+    .qr-code-box {
+        background-color: var(--bg-tertiary) !important;
+        border-color: var(--border-color-dark) !important;
+    }
+
+    .qr-code {
+        filter: invert(1);
+    }
+
+    /* Modal Button Specificity Fix */
+    .modal-container .btn-primary,
+    .modal-container a.btn-primary {
+        color: var(--color-white) !important;
+    }
+
     /* Sidebar buttons */
-    [data-theme="dark"] .sidebar-link {
+    .sidebar-link {
         color: var(--text-primary) !important;
     }
-    
-    [data-theme="dark"] .sidebar-link:hover,
-    [data-theme="dark"] .sidebar-link.active {
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
         color: var(--color-primary-light) !important;
         background-color: rgba(var(--color-primary-rgb), 0.15) !important;
     }
-    
+
     /* Nav links */
-    [data-theme="dark"] .nav-link {
+    .nav-link {
         color: var(--text-primary) !important;
     }
-    
-    [data-theme="dark"] .nav-link:hover,
-    [data-theme="dark"] .nav-link.active {
+
+    .nav-link:hover,
+    .nav-link.active {
         color: var(--color-primary-light) !important;
     }
-    
+
     /* Dropdown items */
-    [data-theme="dark"] .dropdown-item {
+    .dropdown-item {
         color: var(--text-primary) !important;
     }
-    
-    [data-theme="dark"] .dropdown-item:hover {
+
+    .dropdown-item:hover {
         color: var(--color-primary-light) !important;
         background-color: var(--bg-tertiary) !important;
     }
-    
+
     /* Links */
-    [data-theme="dark"] .text-primary a,
-    [data-theme="dark"] a.text-primary {
+    .text-primary a,
+    a.text-primary {
         color: var(--color-primary-light) !important;
     }
-    
-    [data-theme="dark"] a:not(.btn):not(.nav-link):not(.sidebar-link):not(.dropdown-item) {
+
+    a:not(.btn):not(.nav-link):not(.sidebar-link):not(.dropdown-item) {
         color: var(--color-primary-light);
     }
-    
-    [data-theme="dark"] a:not(.btn):not(.nav-link):not(.sidebar-link):not(.dropdown-item):hover {
+
+    a:not(.btn):not(.nav-link):not(.sidebar-link):not(.dropdown-item):hover {
         color: var(--color-primary);
     }
-    
+
     /* RTL Toggle in Dark Mode */
     .rtl-toggle {
         background-color: var(--color-gray-700);
@@ -561,6 +597,27 @@
 
     .theme-toggle:hover {
         background-color: var(--color-gray-600);
+    }
+
+    /* Time Slot Buttons in Dark Mode */
+    .time-slot-btn {
+        background-color: var(--bg-secondary) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-primary) !important;
+    }
+
+    .time-slot-btn:hover {
+        border-color: var(--color-primary-light) !important;
+        background-color: var(--bg-tertiary) !important;
+    }
+
+    .active-slot {
+        background-color: rgba(var(--color-primary-rgb), 0.2) !important;
+        border-color: var(--color-primary-light) !important;
+    }
+
+    .active-slot .font-bold {
+        color: var(--color-primary-light) !important;
     }
 }
 

@@ -11,7 +11,7 @@
  * - Animations
  */
 
-(function() {
+(function () {
     'use strict';
 
     /**
@@ -21,7 +21,7 @@
     const ThemeManager = {
         STORAGE_KEY: 'theme-preference',
         DARK_CLASS: 'dark',
-        
+
         init() {
             this.themeToggleBtn = document.getElementById('theme-toggle');
             this.initTheme();
@@ -31,7 +31,7 @@
         initTheme() {
             const savedTheme = localStorage.getItem(this.STORAGE_KEY);
             const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
+
             if (savedTheme) {
                 this.setTheme(savedTheme);
             } else if (systemPrefersDark) {
@@ -55,10 +55,10 @@
 
         updateIcon(theme) {
             if (!this.themeToggleBtn) return;
-            
+
             const sunIcon = this.themeToggleBtn.querySelector('.sun-icon');
             const moonIcon = this.themeToggleBtn.querySelector('.moon-icon');
-            
+
             if (theme === 'dark') {
                 if (sunIcon) sunIcon.style.display = 'block';
                 if (moonIcon) moonIcon.style.display = 'none';
@@ -88,7 +88,7 @@
      */
     const RTLManager = {
         STORAGE_KEY: 'rtl-preference',
-        
+
         init() {
             this.rtlToggleBtn = document.getElementById('rtl-toggle');
             this.initRTL();
@@ -97,7 +97,7 @@
 
         initRTL() {
             const savedRTL = localStorage.getItem(this.STORAGE_KEY);
-            
+
             if (savedRTL === 'true') {
                 this.setRTL(true);
             } else {
@@ -124,10 +124,10 @@
 
         updateIcon(isRTL) {
             if (!this.rtlToggleBtn) return;
-            
+
             const ltrLabel = this.rtlToggleBtn.querySelector('.rtl-label-ltr');
             const rtlLabel = this.rtlToggleBtn.querySelector('.rtl-label-rtl');
-            
+
             if (isRTL) {
                 if (ltrLabel) ltrLabel.style.display = 'none';
                 if (rtlLabel) rtlLabel.style.display = 'inline';
@@ -154,7 +154,7 @@
             this.navMenu = document.getElementById('nav-menu');
             this.sidebar = document.getElementById('sidebar');
             this.sidebarOverlay = document.getElementById('sidebar-overlay');
-            
+
             this.bindEvents();
         },
 
@@ -222,21 +222,21 @@
 
         initDropdowns() {
             const dropdowns = document.querySelectorAll('.nav-dropdown');
-            
+
             dropdowns.forEach(dropdown => {
                 const toggle = dropdown.querySelector('.nav-link');
                 const menu = dropdown.querySelector('.dropdown-menu');
-                
+
                 if (toggle && menu) {
                     // Click handler for mobile and desktop
                     toggle.addEventListener('click', (e) => {
                         const isMobile = window.innerWidth <= 1024;
-                        
+
                         if (isMobile) {
                             e.preventDefault();
                             e.stopPropagation();
                             menu.classList.toggle('show');
-                            
+
                             // Close other dropdowns
                             dropdowns.forEach(other => {
                                 if (other !== dropdown && other.classList.contains('nav-dropdown')) {
@@ -276,7 +276,7 @@
         bindEvents() {
             this.forms.forEach(form => {
                 form.addEventListener('submit', (e) => this.validateForm(e, form));
-                
+
                 // Real-time validation on blur
                 form.querySelectorAll('input, textarea, select').forEach(field => {
                     field.addEventListener('blur', () => this.validateField(field));
@@ -288,7 +288,7 @@
         validateForm(e, form) {
             let isValid = true;
             const fields = form.querySelectorAll('input, textarea, select');
-            
+
             fields.forEach(field => {
                 if (!this.validateField(field)) {
                     isValid = false;
@@ -308,28 +308,28 @@
             const minLength = field.getAttribute('minlength');
             const maxLength = field.getAttribute('maxlength');
             const pattern = field.getAttribute('pattern');
-            
+
             // Clear previous errors
             this.clearFieldError(field);
-            
+
             // Check required
             if (required && !value) {
                 this.showFieldError(field, 'This field is required');
                 return false;
             }
-            
+
             // Check min length
             if (minLength && value.length < parseInt(minLength)) {
                 this.showFieldError(field, `Minimum ${minLength} characters required`);
                 return false;
             }
-            
+
             // Check max length
             if (maxLength && value.length > parseInt(maxLength)) {
                 this.showFieldError(field, `Maximum ${maxLength} characters allowed`);
                 return false;
             }
-            
+
             // Check email format
             if (type === 'email' && value) {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -338,7 +338,7 @@
                     return false;
                 }
             }
-            
+
             // Check phone format if pattern is specified
             if (type === 'tel' && value) {
                 const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
@@ -347,7 +347,7 @@
                     return false;
                 }
             }
-            
+
             // Check pattern
             if (pattern && value) {
                 try {
@@ -361,7 +361,7 @@
                     console.warn('Invalid regex pattern:', pattern);
                 }
             }
-            
+
             // Mark as valid
             field.classList.add('success');
             return true;
@@ -370,15 +370,15 @@
         showFieldError(field, message) {
             field.classList.add('error');
             field.classList.remove('success');
-            
+
             let errorEl = field.parentElement.querySelector('.error-message, .invalid-feedback');
-            
+
             if (!errorEl) {
                 errorEl = document.createElement('div');
                 errorEl.className = 'error-message';
                 field.parentElement.appendChild(errorEl);
             }
-            
+
             errorEl.textContent = message;
             errorEl.style.display = 'block';
         },
@@ -413,21 +413,21 @@
 
         handleClick(e, anchor) {
             const targetId = anchor.getAttribute('href');
-            
+
             if (targetId === '#') return;
-            
+
             const target = document.querySelector(targetId);
-            
+
             if (target) {
                 e.preventDefault();
                 const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
+
                 // Close mobile menu if open
                 NavigationManager.closeMobileMenu();
             }
@@ -475,7 +475,7 @@
                         }
                     });
                 }, { threshold: 0.1 });
-                
+
                 sectionObserver.observe(section);
             });
         },
@@ -507,7 +507,7 @@
 
         initScrollObserver() {
             const animateElements = document.querySelectorAll('.animate-on-scroll, .fade-in, .slide-up');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -537,7 +537,7 @@
 
         initCounterObserver() {
             const counters = document.querySelectorAll('[data-counter]');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -546,7 +546,7 @@
                     }
                 });
             }, { threshold: 0.5 });
-            
+
             counters.forEach(counter => observer.observe(counter));
         },
 
@@ -555,7 +555,7 @@
             const duration = 2000;
             const step = target / (duration / 16);
             let current = 0;
-            
+
             const timer = setInterval(() => {
                 current += step;
                 if (current >= target) {
@@ -594,7 +594,7 @@
             if (this.btn) {
                 const scrollPosition = window.scrollY;
                 const showAfter = 300;
-                
+
                 if (scrollPosition > showAfter) {
                     this.btn.classList.add('show');
                 } else {
@@ -619,7 +619,7 @@
         init() {
             this.cookieKey = 'cookie-consent';
             this.banner = document.getElementById('cookie-banner');
-            
+
             if (!localStorage.getItem(this.cookieKey) && this.banner) {
                 this.showBanner();
                 this.bindEvents();
@@ -637,11 +637,11 @@
         bindEvents() {
             const acceptBtn = this.banner?.querySelector('#cookie-accept');
             const declineBtn = this.banner?.querySelector('#cookie-decline');
-            
+
             if (acceptBtn) {
                 acceptBtn.addEventListener('click', () => this.accept());
             }
-            
+
             if (declineBtn) {
                 declineBtn.addEventListener('click', () => this.decline());
             }
@@ -676,21 +676,21 @@
 
         handleSubmit(e, form) {
             e.preventDefault();
-            
+
             const email = form.querySelector('input[type="email"]').value;
             const submitBtn = form.querySelector('button[type="submit"]');
             const messageEl = form.querySelector('.newsletter-message');
-            
+
             // Basic validation
             if (!this.validateEmail(email)) {
                 this.showMessage(messageEl, 'Please enter a valid email address', 'error');
                 return;
             }
-            
+
             // Simulate API call
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="loading-spinner"></span> Subscribing...';
-            
+
             setTimeout(() => {
                 this.showMessage(messageEl, 'Thank you for subscribing!', 'success');
                 form.reset();
@@ -705,11 +705,11 @@
 
         showMessage(el, message, type) {
             if (!el) return;
-            
+
             el.textContent = message;
             el.className = `newsletter-message ${type}`;
             el.style.display = 'block';
-            
+
             setTimeout(() => {
                 el.style.display = 'none';
             }, 5000);
@@ -734,14 +734,14 @@
 
         handleSearch(e, form) {
             e.preventDefault();
-            
+
             const query = form.querySelector('input[type="search"]').value.trim();
-            
+
             if (query.length < 2) {
                 alert('Please enter at least 2 characters');
                 return;
             }
-            
+
             // Redirect to search results page or filter content
             window.location.href = `blog.html?q=${encodeURIComponent(query)}`;
         }
@@ -760,15 +760,15 @@
         bindTabs(container) {
             const tabs = container.querySelectorAll('[data-tab]');
             const contents = container.querySelectorAll('[data-tab-content]');
-            
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const target = tab.getAttribute('data-tab');
-                    
+
                     // Remove active class from all tabs and contents
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
-                    
+
                     // Add active class to clicked tab and corresponding content
                     tab.classList.add('active');
                     const targetContent = container.querySelector(`[data-tab-content="${target}"]`);
@@ -792,18 +792,18 @@
 
         bindAccordion(accordion) {
             const headers = accordion.querySelectorAll('.accordion-header');
-            
+
             headers.forEach(header => {
                 header.addEventListener('click', () => {
                     const item = header.parentElement;
                     const isActive = item.classList.contains('active');
-                    
+
                     // Close all items
                     accordion.querySelectorAll('.accordion-item').forEach(i => {
                         i.classList.remove('active');
                         i.querySelector('.accordion-content').style.maxHeight = '0';
                     });
-                    
+
                     // Open clicked item if it wasn't active
                     if (!isActive) {
                         item.classList.add('active');
@@ -816,24 +816,135 @@
     };
 
     /**
+     * Blog Filter & Search
+     * Handles filtering of blog posts by category and search queries
+     */
+    const BlogFilter = {
+        init() {
+            this.buttons = document.querySelectorAll('.filter-btn');
+            this.articles = document.querySelectorAll('.blog-card, .card'); // Select both grid cards and featured card
+            this.articles = Array.from(this.articles).filter(el =>
+                el.classList.contains('blog-card') ||
+                (el.classList.contains('card') && el.parentElement.classList.contains('mb-12'))
+            );
+
+            if (this.buttons.length > 0 || this.articles.length > 0) {
+                this.bindEvents();
+                this.checkUrlParams();
+            }
+        },
+
+        bindEvents() {
+            this.buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+                    this.filterPosts(filter);
+                    this.updateActiveButton(btn);
+
+                    // Clear search param when clicking a filter
+                    const url = new URL(window.location);
+                    url.searchParams.delete('q');
+                    window.history.pushState({}, '', url);
+                });
+            });
+        },
+
+        checkUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+
+            if (query) {
+                // Decode and sanitize
+                const decodedQuery = decodeURIComponent(query).trim();
+                if (decodedQuery) {
+                    this.searchPosts(decodedQuery);
+
+                    // Update search input value if present
+                    const searchInput = document.querySelector('input[type="search"]');
+                    if (searchInput) {
+                        searchInput.value = decodedQuery;
+                    }
+                }
+            }
+        },
+
+        searchPosts(query) {
+            const lowerQuery = query.toLowerCase();
+
+            this.articles.forEach(article => {
+                const title = article.querySelector('h2, h3, .blog-title')?.textContent || '';
+                const excerpt = article.querySelector('p, .blog-excerpt')?.textContent || '';
+                const category = article.getAttribute('data-category') || '';
+
+                const content = `${title} ${excerpt} ${category}`.toLowerCase();
+
+                if (content.includes(lowerQuery)) {
+                    this.showArticle(article);
+                } else {
+                    this.hideArticle(article);
+                }
+            });
+
+            // Reset active filter buttons
+            this.buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === 'all') {
+                    // Optionally highlight 'All' or none
+                } else {
+                    btn.classList.remove('btn-primary');
+                    btn.classList.add('btn-outline');
+                }
+            });
+        },
+
+        filterPosts(category) {
+            this.articles.forEach(article => {
+                const articleCategory = article.getAttribute('data-category');
+
+                if (category === 'all' || category === articleCategory) {
+                    this.showArticle(article);
+                } else {
+                    this.hideArticle(article);
+                }
+            });
+        },
+
+        showArticle(article) {
+            article.style.display = '';
+        },
+
+        hideArticle(article) {
+            article.style.display = 'none';
+        },
+
+        updateActiveButton(activeBtn) {
+            this.buttons.forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline');
+            });
+            activeBtn.classList.remove('btn-outline');
+            activeBtn.classList.add('btn-primary');
+        }
+    };
+
+    /**
      * Session Management
      * Handles user login/logout sessions
      */
     const SessionManager = {
         STORAGE_KEY: 'kep_session',
-        
+
         init() {
             this.bindEvents();
             this.checkSession();
         },
-        
+
         checkSession() {
             const session = this.getSession();
             if (session && session.isLoggedIn) {
                 this.updateUIForLoggedInUser(session);
             }
         },
-        
+
         getSession() {
             try {
                 return {
@@ -845,38 +956,38 @@
                 return null;
             }
         },
-        
+
         isLoggedIn() {
             return localStorage.getItem('isLoggedIn') === 'true';
         },
-        
+
         getUserType() {
             return localStorage.getItem('userType');
         },
-        
+
         login(userType, email = '') {
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('userType', userType);
             localStorage.setItem('userEmail', email);
-            
+
             // Dispatch event for other components
             window.dispatchEvent(new CustomEvent('userLogin', { detail: { userType, email } }));
         },
-        
+
         logout() {
             localStorage.removeItem('isLoggedIn');
             localStorage.removeItem('userType');
             localStorage.removeItem('userEmail');
-            
+
             // Dispatch event for other components
             window.dispatchEvent(new CustomEvent('userLogout'));
-            
+
             // Redirect to logout page
             setTimeout(() => {
                 window.location.href = 'logout.html';
             }, 500);
         },
-        
+
         updateUIForLoggedInUser(session) {
             // Update any UI elements that need to show logged-in state
             const loginLinks = document.querySelectorAll('.login-link');
@@ -885,7 +996,7 @@
                 link.href = session.userType === 'admin' ? 'dashboard.html' : '#';
             });
         },
-        
+
         bindEvents() {
             // Handle logout buttons
             document.addEventListener('click', (e) => {
@@ -894,6 +1005,111 @@
                     this.logout();
                 }
             });
+        }
+    };
+
+    /**
+     * Events Handler
+     * Handles Events link clicks to show coming soon message
+     */
+    const EventsHandler = {
+        init() {
+            this.eventsLink = document.getElementById('events-link');
+            if (this.eventsLink) {
+                this.bindEvents();
+            }
+        },
+
+        bindEvents() {
+            this.eventsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.showComingSoon();
+            });
+        },
+
+        showComingSoon() {
+            // Create a styled modal/alert for coming soon
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                animation: fadeIn 0.3s ease;
+            `;
+
+            const content = document.createElement('div');
+            content.style.cssText = `
+                background: var(--bg-primary, #fff);
+                padding: 2rem;
+                border-radius: 12px;
+                text-align: center;
+                max-width: 400px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+                animation: slideUp 0.3s ease;
+            `;
+
+            content.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary, #000);">Coming Soon!</h3>
+                <p style="color: var(--text-secondary, #666); margin-bottom: 1.5rem;">Events feature is currently under development. Stay tuned for exciting updates!</p>
+                <button id="close-modal" style="
+                    background: linear-gradient(135deg, var(--color-primary, #3b82f6), var(--color-secondary, #10b981));
+                    color: white;
+                    border: none;
+                    padding: 0.75rem 2rem;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: transform 0.2s;
+                " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    Got it!
+                </button>
+            `;
+
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+
+            // Close modal on button click or backdrop click
+            const closeBtn = content.querySelector('#close-modal');
+            closeBtn.addEventListener('click', () => {
+                modal.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => modal.remove(), 300);
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.animation = 'fadeOut 0.3s ease';
+                    setTimeout(() => modal.remove(), 300);
+                }
+            });
+
+            // Add animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+                @keyframes slideUp {
+                    from { transform: translateY(20px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+            `;
+            if (!document.querySelector('#events-animations')) {
+                style.id = 'events-animations';
+                document.head.appendChild(style);
+            }
         }
     };
 
@@ -916,6 +1132,8 @@
         TabNavigation.init();
         Accordion.init();
         SessionManager.init();
+        BlogFilter.init();
+        EventsHandler.init();
     });
 
     // Expose global functions for external use
