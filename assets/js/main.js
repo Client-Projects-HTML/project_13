@@ -152,9 +152,12 @@
         init() {
             this.menuToggle = document.getElementById('menu-toggle');
             this.navMenu = document.getElementById('nav-menu');
+            this.navActions = document.querySelector('.nav-actions');
             this.sidebar = document.getElementById('sidebar');
             this.sidebarOverlay = document.getElementById('sidebar-overlay');
 
+            this.setupHomeDropdown();
+            this.alignLoginButton();
             this.bindEvents();
         },
 
@@ -226,25 +229,68 @@
             dropdowns.forEach(dropdown => {
                 const toggle = dropdown.querySelector('.nav-link');
                 const menu = dropdown.querySelector('.dropdown-menu');
+                const isLoginDropdown = dropdown.hasAttribute('data-login-dropdown');
+                const loginToggleBtn = dropdown.querySelector('.login-mobile-toggle');
 
                 if (toggle && menu) {
+                    const setOpenState = (isOpen) => {
+                        menu.classList.toggle('show', isOpen);
+                        dropdown.classList.toggle('open', isOpen);
+                        toggle.setAttribute('aria-expanded', String(isOpen));
+                        loginToggleBtn?.setAttribute('aria-expanded', String(isOpen));
+                    };
+
+                    const closeOtherDropdowns = () => {
+                        dropdowns.forEach(other => {
+                            if (other !== dropdown && other.classList.contains('nav-dropdown')) {
+                                other.classList.remove('open');
+                                const otherToggle = other.querySelector('.nav-link');
+                                const otherBtn = other.querySelector('.login-mobile-toggle');
+                                otherToggle?.setAttribute('aria-expanded', 'false');
+                                otherBtn?.setAttribute('aria-expanded', 'false');
+                                other.querySelector('.dropdown-menu')?.classList.remove('show');
+                            }
+                        });
+                    };
+
                     // Click handler for mobile and desktop
                     toggle.addEventListener('click', (e) => {
                         const isMobile = window.innerWidth <= 1024;
 
                         if (isMobile) {
+                            // Login dropdown: first tap opens, second tap navigates to login page.
+                            if (isLoginDropdown) {
+                                const isOpen = menu.classList.contains('show');
+                                if (!isOpen) {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    closeOtherDropdowns();
+                                    setOpenState(true);
+                                } else {
+                                    setOpenState(false);
+                                }
+                                return;
+                            }
+
                             e.preventDefault();
                             e.stopPropagation();
-                            menu.classList.toggle('show');
-
-                            // Close other dropdowns
-                            dropdowns.forEach(other => {
-                                if (other !== dropdown && other.classList.contains('nav-dropdown')) {
-                                    other.querySelector('.dropdown-menu')?.classList.remove('show');
-                                }
-                            });
+                            const isOpen = !menu.classList.contains('show');
+                            closeOtherDropdowns();
+                            setOpenState(isOpen);
                         }
                     });
+
+                    // Dedicated arrow toggle for mobile login dropdown.
+                    if (isLoginDropdown && loginToggleBtn) {
+                        loginToggleBtn.addEventListener('click', (e) => {
+                            if (window.innerWidth > 1024) return;
+                            e.preventDefault();
+                            e.stopPropagation();
+                            const isOpen = !menu.classList.contains('show');
+                            closeOtherDropdowns();
+                            setOpenState(isOpen);
+                        });
+                    }
 
                     // Hover effect for desktop only
                     dropdown.addEventListener('mouseenter', () => {
@@ -258,6 +304,155 @@
                             menu.classList.remove('show');
                         }
                     });
+                }
+            });
+        },
+
+        setupHomeDropdown() {
+            if (!this.navMenu || this.navMenu.querySelector('[data-home-dropdown="true"]')) return;
+
+            const homeLink = this.navMenu.querySelector('a.nav-link[href$="index.html"]');
+            const homeItem = homeLink?.closest('li');
+            if (!homeLink || !homeItem || homeItem.classList.contains('nav-dropdown')) return;
+
+            const standaloneHome2Links = this.navMenu.querySelectorAll('a[href$="home-2.html"], a[href$="pages/home-2.html"]');
+            standaloneHome2Links.forEach(link => {
+                const item = link.closest('li');
+                if (item && item !== homeItem) {
+                    item.remove();
+                }
+            });
+
+            const currentPath = window.location.pathname.toLowerCase();
+            const isHome2Active = currentPath.endsWith('/home-2.html') || currentPath.endsWith('home-2.html');
+            const isPagesContext = currentPath.includes('/pages/');
+            const home1Href = 'index.html';
+            const home2Href = isPagesContext ? 'home-2.html' : 'pages/home-2.html';
+
+            const dropdownItem = document.createElement('li');
+            dropdownItem.className = 'nav-item nav-dropdown';
+            dropdownItem.setAttribute('data-home-dropdown', 'true');
+
+            const dropdownToggle = document.createElement('a');
+            dropdownToggle.href = home1Href;
+            dropdownToggle.className = 'nav-link dropdown-toggle';
+            dropdownToggle.textContent = 'Home';
+            dropdownToggle.setAttribute('aria-haspopup', 'true');
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+            if (!isHome2Active) {
+                dropdownToggle.classList.add('active');
+            }
+
+            const dropdownMenu = document.createElement('ul');
+            dropdownMenu.className = 'dropdown-menu';
+
+            const home1Option = document.createElement('li');
+            home1Option.innerHTML = `<a href="${home1Href}" class="dropdown-item${isHome2Active ? '' : ' active'}">Home 1</a>`;
+
+            const home2Option = document.createElement('li');
+            home2Option.innerHTML = `<a href="${home2Href}" class="dropdown-item${isHome2Active ? ' active' : ''}">Home 2</a>`;
+
+            dropdownMenu.appendChild(home1Option);
+            dropdownMenu.appendChild(home2Option);
+
+            dropdownItem.appendChild(dropdownToggle);
+            dropdownItem.appendChild(dropdownMenu);
+
+            homeItem.replaceWith(dropdownItem);
+        },
+
+        alignLoginButton() {
+            if (!this.navMenu || !this.navActions) return;
+
+            const currentPath = window.location.pathname.toLowerCase();
+            const isPagesContext = currentPath.includes('/pages/');
+            const clientDashboardHref = isPagesContext ? '../dashboards/client/index.html' : 'dashboards/client/index.html';
+            const adminDashboardHref = isPagesContext ? '../dashboards/admin/index.html' : 'dashboards/admin/index.html';
+
+            const menuLoginLink = this.navMenu.querySelector('a[href*="login.html"]');
+            const actionLoginLink = this.navActions.querySelector('a[href*="login.html"]');
+            const loginHref = menuLoginLink?.getAttribute('href') || actionLoginLink?.getAttribute('href');
+
+            if (!loginHref) return;
+
+            // Remove any previously injected login variants to avoid duplicates.
+            this.navMenu.querySelectorAll('a[href*="login.html"]').forEach(link => link.closest('li')?.remove());
+            this.navActions.querySelectorAll('.login-dropdown').forEach(el => el.remove());
+            this.navActions.querySelectorAll('a[href*="login.html"]').forEach(el => el.remove());
+
+            // Mobile/Tablet menu: Login dropdown with arrow toggle.
+            const mobileLoginItem = document.createElement('li');
+            mobileLoginItem.className = 'nav-item nav-dropdown d-lg-none';
+            mobileLoginItem.setAttribute('data-login-dropdown', 'true');
+            mobileLoginItem.innerHTML = `
+                <div class="login-mobile-row">
+                    <a href="${loginHref}" class="nav-link dropdown-toggle login-mobile-link" aria-haspopup="true" aria-expanded="false">Login</a>
+                    <button type="button" class="login-mobile-toggle" aria-label="Toggle login portals" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="${clientDashboardHref}" class="dropdown-item">Client Dashboard</a></li>
+                    <li><a href="${adminDashboardHref}" class="dropdown-item">Admin Dashboard</a></li>
+                </ul>
+            `;
+            this.navMenu.appendChild(mobileLoginItem);
+
+            // Desktop: Login button + hover dropdown.
+            const desktopLoginDropdown = document.createElement('div');
+            desktopLoginDropdown.className = 'login-dropdown nav-dropdown d-none d-lg-inline-flex';
+            desktopLoginDropdown.innerHTML = `
+                <a href="${loginHref}" class="btn btn-primary header-login-btn login-main-link" data-login-main-link="true">
+                    Login
+                    <span class="login-caret" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="${clientDashboardHref}" class="dropdown-item">Client Dashboard</a></li>
+                    <li><a href="${adminDashboardHref}" class="dropdown-item">Admin Dashboard</a></li>
+                </ul>
+            `;
+
+            if (this.menuToggle && this.menuToggle.parentElement === this.navActions) {
+                this.navActions.insertBefore(desktopLoginDropdown, this.menuToggle);
+            } else {
+                this.navActions.appendChild(desktopLoginDropdown);
+            }
+
+            const desktopMainLink = desktopLoginDropdown.querySelector('[data-login-main-link="true"]');
+            const desktopMenu = desktopLoginDropdown.querySelector('.dropdown-menu');
+            const setDesktopDropdown = (isOpen) => {
+                desktopLoginDropdown.classList.toggle('open', isOpen);
+                desktopMenu?.classList.toggle('show', isOpen);
+                desktopMainLink?.setAttribute('aria-expanded', String(isOpen));
+            };
+
+            desktopMainLink?.addEventListener('click', () => {
+                setDesktopDropdown(false);
+            });
+
+            desktopLoginDropdown.addEventListener('mouseenter', () => {
+                if (window.innerWidth > 1024) {
+                    setDesktopDropdown(true);
+                }
+            });
+
+            desktopLoginDropdown.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 1024) {
+                    setDesktopDropdown(false);
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!desktopLoginDropdown.contains(e.target)) {
+                    setDesktopDropdown(false);
                 }
             });
         }
@@ -500,9 +695,41 @@
      */
     const AnimationManager = {
         init() {
-            if ('IntersectionObserver' in window) {
-                this.initScrollObserver();
+            this.prepareRevealTargets();
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+                this.revealAll();
+                return;
             }
+
+            this.initScrollObserver();
+        },
+
+        prepareRevealTargets() {
+            const selectors = [
+                'main .section-header',
+                'main [class*="-card"]',
+                '.dashboard-main [class*="-card"]',
+                '.dashboard-main .card'
+            ];
+
+            const targets = document.querySelectorAll(selectors.join(','));
+            targets.forEach((el, index) => {
+                if (el.closest('.hero') || el.classList.contains('no-reveal')) return;
+                if (!el.classList.contains('animate-on-scroll') && !el.classList.contains('fade-in') && !el.classList.contains('slide-up')) {
+                    el.classList.add('animate-on-scroll');
+                }
+
+                // Light stagger to avoid all cards revealing at the same time.
+                el.style.transitionDelay = `${Math.min((index % 6) * 60, 300)}ms`;
+            });
+        },
+
+        revealAll() {
+            document.querySelectorAll('.animate-on-scroll, .fade-in, .slide-up').forEach(el => {
+                el.classList.add('animate-visible');
+            });
         },
 
         initScrollObserver() {
@@ -516,8 +743,8 @@
                     }
                 });
             }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                threshold: 0.12,
+                rootMargin: '0px 0px -10% 0px'
             });
 
             animateElements.forEach(el => observer.observe(el));
@@ -823,6 +1050,7 @@
         init() {
             this.buttons = document.querySelectorAll('.filter-btn');
             this.articles = document.querySelectorAll('.blog-card, .card'); // Select both grid cards and featured card
+            this.blogGrid = document.getElementById('blog-grid');
             this.articles = Array.from(this.articles).filter(el =>
                 el.classList.contains('blog-card') ||
                 (el.classList.contains('card') && el.parentElement.classList.contains('mb-12'))
@@ -831,6 +1059,7 @@
             if (this.buttons.length > 0 || this.articles.length > 0) {
                 this.bindEvents();
                 this.checkUrlParams();
+                this.rebalanceGrid();
             }
         },
 
@@ -847,6 +1076,8 @@
                     window.history.pushState({}, '', url);
                 });
             });
+
+            window.addEventListener('resize', () => this.rebalanceGrid());
         },
 
         checkUrlParams() {
@@ -885,6 +1116,8 @@
                 }
             });
 
+            this.rebalanceGrid();
+
             // Reset active filter buttons
             this.buttons.forEach(btn => {
                 if (btn.getAttribute('data-filter') === 'all') {
@@ -906,6 +1139,8 @@
                     this.hideArticle(article);
                 }
             });
+
+            this.rebalanceGrid();
         },
 
         showArticle(article) {
@@ -923,6 +1158,20 @@
             });
             activeBtn.classList.remove('btn-outline');
             activeBtn.classList.add('btn-primary');
+        },
+
+        rebalanceGrid() {
+            if (!this.blogGrid) return;
+
+            const cards = Array.from(this.blogGrid.querySelectorAll('.blog-card'));
+            cards.forEach(card => card.classList.remove('blog-card--wide'));
+
+            if (window.innerWidth < 768) return;
+
+            const visibleCards = cards.filter(card => card.style.display !== 'none');
+            if (visibleCards.length % 2 === 1) {
+                visibleCards[visibleCards.length - 1].classList.add('blog-card--wide');
+            }
         }
     };
 
