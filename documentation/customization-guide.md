@@ -163,7 +163,7 @@ The template uses an 8px base unit:
 2. **Copy the header/footer** from an existing page
 3. **Update meta tags**:
 ```html
-<title>Page Title - Kitchen Exhaust Pro</title>
+<title>Page Title - Kitchen Exhaust</title>
 <meta name="description" content="Page description for SEO">
 ```
 4. **Add to navigation** in the header of all pages

@@ -1,11 +1,11 @@
-# Kitchen Exhaust Pro - Robots.txt
+# Kitchen Exhaust - Robots.txt
 # Production-ready configuration
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.kitchenexhaustpro.com/sitemap.xml
+Sitemap: https://www.kitchenexhaust.com/sitemap.xml
 
 # Disallow admin/private areas
 Disallow: /dashboard

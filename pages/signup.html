@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Kitchen Exhaust</title>
+    <title>Sign Up - Kitchen Exhaust</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -24,7 +24,7 @@
 
         .auth-card {
             width: 100%;
-            max-width: 480px;
+            max-width: 550px;
         }
 
         .auth-logo {
@@ -37,30 +37,26 @@
             font-size: var(--font-size-xl);
         }
 
-        .login-form {
-            display: block;
-        }
-
         .auth-submit-btn {
             width: 100%;
             justify-content: center;
-            margin: 0 auto;
+            margin: var(--space-2) auto 0;
         }
 
-        .auth-signup {
+        .auth-footer {
             margin-top: var(--space-4);
             text-align: center;
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
         }
 
-        .auth-signup a {
+        .auth-footer a {
             color: var(--color-primary);
             font-weight: 600;
             text-decoration: none;
         }
 
-        .auth-signup a:hover {
+        .auth-footer a:hover {
             text-decoration: underline;
         }
     </style>
@@ -100,54 +96,82 @@
                 </a>
             </div>
 
-            <form id="client-login-form" class="login-form active" data-validate>
-                <h1 class="text-center text-xl font-bold mb-2">Login</h1>
-                <p class="text-center text-secondary mb-6">Sign in to manage your cleaning schedules</p>
+            <h1 class="text-center text-xl font-bold mb-2">Create Account</h1>
+            <p class="text-center text-secondary mb-6">Join our network for automated NFPA compliance</p>
+
+            <form id="signup-form" data-validate>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label" for="full-name">Full Name</label>
+                        <input type="text" class="form-control" id="full-name" name="name" required
+                            placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="restaurant-name">Restaurant Name</label>
+                        <input type="text" class="form-control" id="restaurant-name" name="restaurant" required
+                            placeholder="Eatery Name">
+                    </div>
+                </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="client-email">Email Address</label>
-                    <input type="email" class="form-control" id="client-email" name="email" required
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required
                         placeholder="your@email.com">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="client-password">Password</label>
-                    <input type="password" class="form-control" id="client-password" name="password" required
-                        placeholder="Enter your password">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required
+                        placeholder="(123) 456-7890">
                 </div>
 
-                <div class="flex justify-between items-center mb-4">
-                    <label class="flex items-center gap-2">
-                        <input type="checkbox" class="form-check-input">
-                        <span class="text-sm">Remember me</span>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required
+                            placeholder="Min. 8 characters">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="confirm-password">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm-password" name="confirm-password"
+                            required placeholder="Repeat password">
+                    </div>
+                </div>
+
+                <div class="form-group mb-6">
+                    <label class="flex items-start gap-2 cursor-pointer">
+                        <input type="checkbox" class="form-check-input mt-1" required>
+                        <span class="text-sm text-secondary">I agree to the <a href="#"
+                                class="text-primary font-medium">Terms of Service</a> and <a href="#"
+                                class="text-primary font-medium">Privacy Policy</a></span>
                     </label>
-                    <a href="#" class="text-sm text-primary">Forgot password?</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg auth-submit-btn">Sign In</button>
-                <p class="auth-signup">New user? <a href="signup.html">Sign Up</a></p>
+                <button type="submit" class="btn btn-primary btn-lg auth-submit-btn">Create Account</button>
+                <p class="auth-footer">Already have an account? <a href="login.html">Sign In</a></p>
             </form>
         </div>
     </div>
 
     <script src="../assets/js/main.js"></script>
     <script>
-        const clientForm = document.getElementById('client-login-form');
+        const signupForm = document.getElementById('signup-form');
 
-        // Client login form submission
-        clientForm.addEventListener('submit', (e) => {
+        signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('client-email').value;
-            const password = document.getElementById('client-password').value;
+            const password = document.getElementById('password').value;
+            const confirm = document.getElementById('confirm-password').value;
 
-            // Simple validation
-            if (email && password) {
-                localStorage.setItem('userType', 'client');
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userEmail', email);
-                alert('Login successful! Redirecting...');
-                window.location.href = 'index.html';
+            if (password !== confirm) {
+                alert('Passwords do not match!');
+                return;
             }
+
+            // Mock successful signup
+            localStorage.setItem('userType', 'client');
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Account created successfully! Welcome to Kitchen Exhaust.');
+            window.location.href = 'index.html';
         });
     </script>
 </body>

@@ -255,7 +255,7 @@
 
                     // Click handler for mobile and desktop
                     toggle.addEventListener('click', (e) => {
-                        const isMobile = window.innerWidth <= 1024;
+                        const isMobile = window.innerWidth < 1024;
 
                         if (isMobile) {
                             // Login dropdown: first tap opens, second tap navigates to login page.
@@ -283,7 +283,7 @@
                     // Dedicated arrow toggle for mobile login dropdown.
                     if (isLoginDropdown && loginToggleBtn) {
                         loginToggleBtn.addEventListener('click', (e) => {
-                            if (window.innerWidth > 1024) return;
+                            if (window.innerWidth >= 1024) return;
                             e.preventDefault();
                             e.stopPropagation();
                             const isOpen = !menu.classList.contains('show');
@@ -294,13 +294,13 @@
 
                     // Hover effect for desktop only
                     dropdown.addEventListener('mouseenter', () => {
-                        if (window.innerWidth > 1024) {
+                        if (window.innerWidth >= 1024) {
                             menu.classList.add('show');
                         }
                     });
 
                     dropdown.addEventListener('mouseleave', () => {
-                        if (window.innerWidth > 1024) {
+                        if (window.innerWidth >= 1024) {
                             menu.classList.remove('show');
                         }
                     });
@@ -311,7 +311,16 @@
         setupHomeDropdown() {
             if (!this.navMenu || this.navMenu.querySelector('[data-home-dropdown="true"]')) return;
 
-            const homeLink = this.navMenu.querySelector('a.nav-link[href$="index.html"]');
+            let homeLink = this.navMenu.querySelector('a.nav-link[href$="index.html"]');
+
+            // Fallback: find by text content
+            if (!homeLink) {
+                const allLinks = this.navMenu.querySelectorAll('a.nav-link');
+                homeLink = Array.from(allLinks).find(link =>
+                    link.textContent.trim().toLowerCase() === 'home'
+                );
+            }
+
             const homeItem = homeLink?.closest('li');
             if (!homeLink || !homeItem || homeItem.classList.contains('nav-dropdown')) return;
 
@@ -380,7 +389,7 @@
             this.navActions.querySelectorAll('.login-dropdown').forEach(el => el.remove());
             this.navActions.querySelectorAll('a[href*="login.html"]').forEach(el => el.remove());
 
-            // Mobile/Tablet menu: Login dropdown with arrow toggle.
+            // Mobile/Tablet menu: Login dropdown and Sign Up link.
             const mobileLoginItem = document.createElement('li');
             mobileLoginItem.className = 'nav-item nav-dropdown d-lg-none';
             mobileLoginItem.setAttribute('data-login-dropdown', 'true');
@@ -401,6 +410,12 @@
             `;
             this.navMenu.appendChild(mobileLoginItem);
 
+            const signUpHref = isPagesContext ? 'signup.html' : 'pages/signup.html';
+            const mobileSignUpItem = document.createElement('li');
+            mobileSignUpItem.className = 'nav-item d-lg-none';
+            mobileSignUpItem.innerHTML = `<a href="${signUpHref}" class="nav-link btn btn-primary text-white mx-4 my-2">Sign Up</a>`;
+            this.navMenu.appendChild(mobileSignUpItem);
+
             // Desktop: Login button + hover dropdown.
             const desktopLoginDropdown = document.createElement('div');
             desktopLoginDropdown.className = 'login-dropdown nav-dropdown d-none d-lg-inline-flex';
@@ -420,7 +435,10 @@
                 </ul>
             `;
 
-            if (this.menuToggle && this.menuToggle.parentElement === this.navActions) {
+            const signUpBtn = this.navActions.querySelector('.header-signup-btn');
+            if (signUpBtn) {
+                this.navActions.insertBefore(desktopLoginDropdown, signUpBtn);
+            } else if (this.menuToggle && this.menuToggle.parentElement === this.navActions) {
                 this.navActions.insertBefore(desktopLoginDropdown, this.menuToggle);
             } else {
                 this.navActions.appendChild(desktopLoginDropdown);
@@ -439,13 +457,13 @@
             });
 
             desktopLoginDropdown.addEventListener('mouseenter', () => {
-                if (window.innerWidth > 1024) {
+                if (window.innerWidth >= 1024) {
                     setDesktopDropdown(true);
                 }
             });
 
             desktopLoginDropdown.addEventListener('mouseleave', () => {
-                if (window.innerWidth > 1024) {
+                if (window.innerWidth >= 1024) {
                     setDesktopDropdown(false);
                 }
             });

@@ -1,4 +1,4 @@
-# Kitchen Exhaust Pro - Commercial Kitchen Exhaust Cleaning Template
+# Kitchen Exhaust - Commercial Kitchen Exhaust Cleaning Template
 
 A modern, responsive HTML template for commercial kitchen exhaust cleaning businesses. Built with vanilla HTML, CSS, and JavaScript - no frameworks required.
 
@@ -152,4 +152,4 @@ This template is licensed under the MIT License.
 
 ## Support
 
-For support, please open an issue on GitHub or contact support@kitchenexhaustpro.com.
+For support, please open an issue on GitHub or contact support@kitchenexhaust.com.

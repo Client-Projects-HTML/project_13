@@ -668,7 +668,7 @@ Date: 12/01/2024`;
             const dtEnd = end.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
             return [
                 'BEGIN:VEVENT',
-                `UID:${s.id}@kitchenexhaustpro`,
+                `UID:${s.id}@kitchenexhaust`,
                 `DTSTAMP:${dtstamp}`,
                 `DTSTART:${dtStart}`,
                 `DTEND:${dtEnd}`,
@@ -681,7 +681,7 @@ Date: 12/01/2024`;
         return [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'PRODID:-//Kitchen Exhaust Pro//Client Dashboard//EN',
+            'PRODID:-//Kitchen Exhaust//Client Dashboard//EN',
             events,
             'END:VCALENDAR'
         ].join('\r\n');
