@@ -255,11 +255,13 @@
 
                     // Click handler for mobile and desktop
                     toggle.addEventListener('click', (e) => {
-                        const isMobile = window.innerWidth < 1024;
+                        const isDesktop = window.innerWidth >= 1024 || window.matchMedia('(min-width: 1024px)').matches;
 
-                        if (isMobile) {
-                            // Login dropdown: first tap opens, second tap navigates to login page.
+                        if (!isDesktop) {
+                            // Mobile behavior
                             if (isLoginDropdown) {
+                                // In mobile row, there's a dedicated arrow button (loginToggleBtn)
+                                // but if they tap the Login text area, we toggle too.
                                 const isOpen = menu.classList.contains('show');
                                 if (!isOpen) {
                                     e.preventDefault();
@@ -277,6 +279,22 @@
                             const isOpen = !menu.classList.contains('show');
                             closeOtherDropdowns();
                             setOpenState(isOpen);
+                        } else {
+                            // Desktop behavior
+                            if (isLoginDropdown) {
+                                // Handled by split button logic in alignLoginButton
+                                return;
+                            }
+
+                            // For other dropdowns (like Home) on desktop
+                            // Hover opens it, but click toggles if touch or explicit click
+                            const isOpen = menu.classList.contains('show');
+                            if (!isOpen) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                closeOtherDropdowns();
+                                setOpenState(true);
+                            }
                         }
                     });
 
@@ -294,17 +312,32 @@
 
                     // Hover effect for desktop only
                     dropdown.addEventListener('mouseenter', () => {
-                        if (window.innerWidth >= 1024) {
-                            menu.classList.add('show');
+                        if (window.innerWidth >= 1024 || window.matchMedia('(min-width: 1024px)').matches) {
+                            setOpenState(true);
                         }
                     });
 
                     dropdown.addEventListener('mouseleave', () => {
-                        if (window.innerWidth >= 1024) {
-                            menu.classList.remove('show');
+                        if (window.innerWidth >= 1024 || window.matchMedia('(min-width: 1024px)').matches) {
+                            setOpenState(false);
                         }
                     });
                 }
+            });
+
+            // Global click handler to close dropdowns when clicking outside
+            document.addEventListener('click', (e) => {
+                dropdowns.forEach(dropdown => {
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    const toggle = dropdown.querySelector('.nav-link');
+                    // Special handling for login-dropdown is usually managed in alignLoginButton,
+                    // but we can make this generic.
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('open');
+                        menu?.classList.remove('show');
+                        toggle?.setAttribute('aria-expanded', 'false');
+                    }
+                });
             });
         },
 
@@ -333,9 +366,11 @@
             });
 
             const currentPath = window.location.pathname.toLowerCase();
-            const isHome2Active = currentPath.endsWith('/home-2.html') || currentPath.endsWith('home-2.html');
+            const isHome1Active = currentPath.endsWith('index.html') || currentPath.endsWith('index.html/') || currentPath.endsWith('pages/');
+            const isHome2Active = currentPath.endsWith('home-2.html');
             const isPagesContext = currentPath.includes('/pages/');
-            const home1Href = 'index.html';
+
+            const home1Href = isPagesContext ? 'index.html' : 'pages/index.html';
             const home2Href = isPagesContext ? 'home-2.html' : 'pages/home-2.html';
 
             const dropdownItem = document.createElement('li');
@@ -348,7 +383,7 @@
             dropdownToggle.textContent = 'Home';
             dropdownToggle.setAttribute('aria-haspopup', 'true');
             dropdownToggle.setAttribute('aria-expanded', 'false');
-            if (!isHome2Active) {
+            if (isHome1Active || isHome2Active) {
                 dropdownToggle.classList.add('active');
             }
 
@@ -356,7 +391,7 @@
             dropdownMenu.className = 'dropdown-menu';
 
             const home1Option = document.createElement('li');
-            home1Option.innerHTML = `<a href="${home1Href}" class="dropdown-item${isHome2Active ? '' : ' active'}">Home 1</a>`;
+            home1Option.innerHTML = `<a href="${home1Href}" class="dropdown-item${isHome1Active ? ' active' : ''}">Home 1</a>`;
 
             const home2Option = document.createElement('li');
             home2Option.innerHTML = `<a href="${home2Href}" class="dropdown-item${isHome2Active ? ' active' : ''}">Home 2</a>`;
@@ -416,19 +451,22 @@
             mobileSignUpItem.innerHTML = `<a href="${signUpHref}" class="nav-link btn btn-primary text-white mx-4 my-2">Sign Up</a>`;
             this.navMenu.appendChild(mobileSignUpItem);
 
-            // Desktop: Login button + hover dropdown.
+            // Desktop: Split Login button (Link + Arrow toggle).
             const desktopLoginDropdown = document.createElement('div');
             desktopLoginDropdown.className = 'login-dropdown nav-dropdown d-none d-lg-inline-flex';
+            desktopLoginDropdown.setAttribute('data-login-dropdown', 'true');
             desktopLoginDropdown.innerHTML = `
-                <a href="${loginHref}" class="btn btn-primary header-login-btn login-main-link" data-login-main-link="true">
-                    Login
-                    <span class="login-caret" aria-hidden="true">
+                <div class="login-split-btn">
+                    <a href="${loginHref}" class="btn btn-primary login-main-link" data-login-main-link="true">
+                        Login
+                    </a>
+                    <button type="button" class="btn btn-primary login-arrow-toggle" aria-label="Toggle login dropdown" aria-haspopup="true" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
-                    </span>
-                </a>
+                    </button>
+                </div>
                 <ul class="dropdown-menu">
                     <li><a href="${clientDashboardHref}" class="dropdown-item">Client Dashboard</a></li>
                     <li><a href="${adminDashboardHref}" class="dropdown-item">Admin Dashboard</a></li>
@@ -444,26 +482,32 @@
                 this.navActions.appendChild(desktopLoginDropdown);
             }
 
-            const desktopMainLink = desktopLoginDropdown.querySelector('[data-login-main-link="true"]');
+            const desktopArrowToggle = desktopLoginDropdown.querySelector('.login-arrow-toggle');
             const desktopMenu = desktopLoginDropdown.querySelector('.dropdown-menu');
+
             const setDesktopDropdown = (isOpen) => {
                 desktopLoginDropdown.classList.toggle('open', isOpen);
                 desktopMenu?.classList.toggle('show', isOpen);
-                desktopMainLink?.setAttribute('aria-expanded', String(isOpen));
+                desktopArrowToggle?.setAttribute('aria-expanded', String(isOpen));
             };
 
-            desktopMainLink?.addEventListener('click', () => {
-                setDesktopDropdown(false);
+            // Arrow click toggles menu
+            desktopArrowToggle?.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isOpen = desktopMenu?.classList.contains('show');
+                setDesktopDropdown(!isOpen);
             });
 
+            // Hover effects
             desktopLoginDropdown.addEventListener('mouseenter', () => {
-                if (window.innerWidth >= 1024) {
+                if (window.innerWidth >= 1024 || window.matchMedia('(min-width: 1024px)').matches) {
                     setDesktopDropdown(true);
                 }
             });
 
             desktopLoginDropdown.addEventListener('mouseleave', () => {
-                if (window.innerWidth >= 1024) {
+                if (window.innerWidth >= 1024 || window.matchMedia('(min-width: 1024px)').matches) {
                     setDesktopDropdown(false);
                 }
             });

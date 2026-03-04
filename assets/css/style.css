@@ -1259,8 +1259,7 @@ img {
 
 
 
-.nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu,
+.nav-dropdown.open .dropdown-menu,
 .dropdown-menu.show {
     opacity: 1;
     visibility: visible;
@@ -1348,8 +1347,7 @@ img {
     transition: transform var(--transition-fast);
 }
 
-.nav-dropdown:hover .nav-link.dropdown-toggle::after,
-.nav-dropdown:focus-within .nav-link.dropdown-toggle::after {
+.nav-dropdown.open .nav-link.dropdown-toggle::after {
     transform: rotate(180deg);
 }
 
@@ -1687,15 +1685,67 @@ img {
 
 .login-dropdown {
     position: relative;
+    display: inline-flex;
     align-items: center;
+    z-index: var(--z-dropdown);
+}
+
+.login-split-btn {
+    display: flex;
+    align-items: stretch;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.login-split-btn:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.login-main-link.btn {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding-inline-end: var(--space-3);
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.login-arrow-toggle.btn {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding-inline-start: var(--space-2) !important;
+    padding-inline-end: var(--space-2) !important;
+    min-width: 36px;
+    border: none !important;
+    border-inline-start: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.login-arrow-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.login-dropdown .dropdown-menu {
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+    min-width: 200px;
+    margin-top: var(--space-2);
 }
 
 .login-dropdown .header-login-btn {
     margin: 0;
 }
 
-.login-dropdown .login-main-link {
-    gap: var(--space-2);
+.login-dropdown span.login-caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login-dropdown .login-caret {
